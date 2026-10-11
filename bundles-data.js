@@ -1,0 +1,9 @@
+window.LIMON_BUNDLES=[{"id":"trade-fair","name":"Fuar Karşılama Paketi","nameEn":"Trade Fair Essentials","subtitle":"İlk tanışmadan kalıcı bir iz bırakın.","subtitleEn":"Make the first introduction last.","discount":12,"items":[{"productId":"limon-8778","perSet":1},{"productId":"limon-6520","perSet":1},{"productId":"limon-8958","perSet":1}]},{"id":"office","name":"Ofis Masası Paketi","nameEn":"The Office Edit","subtitle":"Her çalışma gününde aynı marka dili.","subtitleEn":"One brand identity, every working day.","discount":10,"items":[{"productId":"limon-6520","perSet":1},{"productId":"limon-8958","perSet":1},{"productId":"limon-8997","perSet":1}]},{"id":"welcome","name":"Ekibe Hoş Geldin Paketi","nameEn":"Welcome to the Team","subtitle":"İlk güne düşünülmüş bir başlangıç.","subtitleEn":"A thoughtful start to their first day.","discount":15,"items":[{"productId":"limon-8778","perSet":1},{"productId":"limon-6520","perSet":1},{"productId":"limon-8958","perSet":1},{"productId":"limon-9070","perSet":1}]}];window.limonBundleDiscount=function bundleDiscount(items){
+ const groups=new Map();for(const i of items)if(i.bundleId){const group=groups.get(i.bundleGroup)||[];group.push(i);groups.set(i.bundleGroup,group);}
+ let cents=0;for(const lines of groups.values()){
+  const b=window.LIMON_BUNDLES.find(b=>b.id===lines[0].bundleId);if(!b||lines.length!==b.items.length||lines.some(i=>i.bundleId!==b.id))continue;
+  const setCount=lines[0].qty/b.items.find(i=>i.productId===lines[0].productId)?.perSet;
+  if(!Number.isInteger(setCount)||setCount<100||!b.items.every(spec=>lines.filter(i=>i.productId===spec.productId&&i.qty===setCount*spec.perSet).length===1))continue;
+  cents+=Math.round(lines.reduce((s,i)=>s+i.qty*i.unitCents,0)*b.discount/100);
+ }return cents;
+};

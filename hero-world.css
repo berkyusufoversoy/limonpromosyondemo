@@ -1,0 +1,32 @@
+/* Hero world stage: the cover-fitted city image plus the layers HeroWorld.mount adds on top of it. */
+.world-stage{isolation:isolate;overflow:hidden}
+.world-stage>picture{display:contents}
+.hw-frame{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none;will-change:transform}
+/* Bottom to top: canvas, shadows, cutouts, overlays. Each layer is its own stacking context, so a cutout's data z (1..20) stays inside .hw-cutouts. */
+.hw-canvas,.hw-shadows,.hw-cutouts,.hw-overlays{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;isolation:isolate}
+.hw-canvas{z-index:1}
+.hw-shadows{z-index:2}
+.hw-cutouts{z-index:3}
+.hw-overlays{z-index:4}
+.hw-cutouts img,.hw-overlays img{position:absolute;display:block;max-width:none;margin:0;user-select:none;-webkit-user-drag:none}
+/* Intro (full/short modes only; the class is added by HeroWorld.mount and removed at hand-off). */
+.world-hero.hw-intro .world-stage{background:#f4ee00}
+/* city-drift holds still during the intro (paused, not removed: its 0% keyframe is scale(1.02), so removing it would jump) and resumes from the same frame after hand-off. */
+.world-hero.hw-intro>.world-stage{animation-play-state:paused}
+.world-hero.hw-intro::after{opacity:var(--hw-veil,0)}
+.hw-shadow,.hw-dust{position:absolute;border-radius:50%;pointer-events:none}
+.hw-shadow{background:radial-gradient(closest-side,rgba(58,42,0,.5),rgba(58,42,0,.24) 55%,rgba(58,42,0,0))}
+.hw-dust{background:radial-gradient(closest-side,rgba(255,252,226,0) 48%,rgba(255,252,226,.85) 70%,rgba(255,252,226,0))}
+/* Headline word masks (added once by the intro; the rise clip is set inline while the words come up). */
+.world-copy h1 .w,.world-copy h1 .w>span{display:inline-block}
+/* Living city (added to .hw-overlays after hand-off, in image px; see startLoops in hero-world.js). */
+.world-hero.hw-tilt{perspective:1200px}
+.hw-glint,.hw-second-hand,.hw-flood{position:absolute;pointer-events:none}
+/* Floodlight glow: near-white, so plain alpha compositing equals a 'screen' blend. */
+.hw-flood{width:26px;height:16px;margin:-8px 0 0 -13px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,252,242,.9),rgba(255,246,222,.4) 45%,rgba(255,242,210,0))}
+.hw-cone{transform-origin:50% 50%}
+.hw-glint{overflow:hidden;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-composite:source-in;mask-composite:intersect}
+.hw-glint-band{position:absolute;left:-100%;top:0;width:300%;height:110px;background:linear-gradient(180deg,rgba(255,252,240,0) 22%,rgba(255,252,240,.65) 50%,rgba(255,252,240,0) 78%)}
+.hw-second-hand{width:0;height:0;transform-origin:0 0}
+.hw-arm{position:absolute;width:1.1px;border-radius:.55px;background:#efcd86}
+.hw-arm-shadow{background:rgba(24,14,0,.38)}
