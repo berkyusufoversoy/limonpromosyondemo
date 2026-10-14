@@ -1,0 +1,21 @@
+{
+  "source": "https://webservice.ilpen.com.tr/xml/xml_list_all_products",
+  "snapshotDate": "2026-10-07T07:14:05.104Z",
+  "importedAt": "2026-10-14T17:31:36.612Z",
+  "products": 1181,
+  "variants": 3162,
+  "categories": 58,
+  "cachedExactIdentityImages": 137,
+  "externalImages": 1044,
+  "zeroOrMissingPrice": 217,
+  "unknownStock": 97,
+  "printMethodsInDescription": 213,
+  "invalidVat": [
+    {
+      "id": "ilpen-8231",
+      "code": "6634",
+      "value": 127
+    }
+  ],
+  "linkedPageEnrichment": "Supplier endpoints timed out; source URLs retained, no unverified page data added."
+}
