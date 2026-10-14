@@ -10,6 +10,6 @@ The original source repository remains private. Its `npm run build:demo` command
 
 ## Product sources
 
-The catalog contains only 1,181 İlpen XML products and 239 Alina products. İlpen data is the extracted 7 October 2026 snapshot, not live inventory. Supplier IDs, descriptions, links, variants, stock and prices are retained. Unknown stock, zero prices and an invalid VAT value remain flagged rather than guessed.
+The catalog contains only 1,218 İlpen XML products and 239 Alina products. İlpen data is the complete 14 October 2026 XML snapshot, not live inventory. All original scalar fields, supplier IDs, descriptions, links, variants, stock and prices are retained. Unknown stock, zero prices and an invalid VAT value remain flagged rather than guessed.
 
-The supplier XML endpoint and linked pages timed out during this update. There are 137 usable cached photos associated with exact İlpen identities; the other 1,044 products retain their external supplier image URLs. Product pages expose the available source data and a JSON download. Print geometry, production minimums and printing charges are not supplied by the feed; customization and checkout are demonstrations.
+Supplier access works after disabling WARP on the development connection. All 1,238 primary and variant image URLs were downloaded successfully and cached in the demo. Product pages expose the source data and a JSON download. Two tested product links redirect to an empty B2B homepage, so linked-page enrichment remains unavailable. Print geometry, production minimums and printing charges are not supplied by the feed; customization and checkout are demonstrations.

@@ -1,15 +1,15 @@
 {
   "source": "https://webservice.ilpen.com.tr/xml/xml_list_all_products",
-  "snapshotDate": "2026-10-07T07:14:05.104Z",
-  "importedAt": "2026-10-14T17:31:36.612Z",
-  "products": 1181,
-  "variants": 3162,
+  "snapshotDate": "2026-10-14T18:00:12.752Z",
+  "importedAt": "2026-10-14T18:07:12.891Z",
+  "products": 1218,
+  "variants": 3346,
   "categories": 58,
-  "cachedExactIdentityImages": 137,
-  "externalImages": 1044,
-  "zeroOrMissingPrice": 217,
-  "unknownStock": 97,
-  "printMethodsInDescription": 213,
+  "cachedExactIdentityImages": 1218,
+  "externalImages": 0,
+  "zeroOrMissingPrice": 203,
+  "unknownStock": 85,
+  "printMethodsInDescription": 214,
   "invalidVat": [
     {
       "id": "ilpen-8231",
@@ -17,5 +17,5 @@
       "value": 127
     }
   ],
-  "linkedPageEnrichment": "Supplier endpoints timed out; source URLs retained, no unverified page data added."
+  "linkedPageEnrichment": "Kontrol edilen 2 ürün linki B2B ana sayfasına yönleniyor ve boş yanıt veriyor. Ek ürün sayfası bilgisi doğrulanamadı."
 }
